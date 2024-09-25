@@ -34,8 +34,8 @@ ENV NODE_ENV=production
 
 WORKDIR /app/medusa
 
-COPY --from=builder --chmod=0755 /app/medusa-src/develop.sh .
-#RUN chmod +x develop.sh
+COPY --from=builder --chmod=0755 /app/medusa-src/docker-start.sh .
+#RUN chmod +x docker-start.sh
 COPY --from=builder /app/medusa-src/package*.json .
 COPY --from=builder /app/medusa-src/medusa-config.js .
 COPY --from=builder /app/medusa-src/node_modules ./node_modules
@@ -43,9 +43,9 @@ COPY --from=builder /app/medusa-src/dist ./dist
 COPY --from=builder /app/medusa-src/build ./build
 
 RUN npm install --only=production
-RUN npm install -g @medusajs/medusa-cli@preview
+# ez nem kell szerintem mert a packages.json tartlmazza RUN npm install -g @medusajs/medusa-cli@preview
 
-#COPY develop.sh .
+#COPY docker-start.sh .
 #COPY package*.json .
 #COPY medusa-config.js .
 #RUN mkdir dist

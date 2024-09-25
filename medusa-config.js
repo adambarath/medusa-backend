@@ -13,4 +13,24 @@ module.exports = defineConfig({
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
     },
   },
+  modules: {
+    [Modules.PAYMENT]: {
+      resolve: "@medusajs/payment",
+      options: {
+        providers: [
+          {
+            resolve: "@medusajs/payment-stripe",
+            id: "stripe",
+            options: {
+              apiKey: process.env.STRIPE_API_KEY,
+              webhookSecret: process.env.STRIPE_API_WEBHOOK_SECRET,
+              // capture: process.env.STRIPE_API_,
+              // automatic_payment_methods: process.env.STRIPE_API_,
+              // payment_description: process.env.STRIPE_API_,
+            },
+          },
+        ],
+      },
+    },
+  }
 });
