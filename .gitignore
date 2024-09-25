@@ -3,6 +3,8 @@
 .DS_Store
 /uploads
 /node_modules
+/node_modules_v1
+/node_modules_v2
 yarn-error.log
 
 .idea
@@ -24,3 +26,5 @@ build
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+.medusa

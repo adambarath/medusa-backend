@@ -3,7 +3,7 @@
 # Repository of source code
 ARG SOURCE="https://github.com/adambarath/medusa-backend.git"
 # Branch name
-ARG BRANCH="main"
+ARG BRANCH="medusajs-v2"
 
 
 # Rebuild the source code only when needed
@@ -19,7 +19,7 @@ ENV NODE_ENV=production
 
 WORKDIR /app/medusa-src
 
-RUN npm install -g @medusajs/medusa-cli@latest
+RUN npm install -g @medusajs/medusa-cli@preview
 
 RUN apk add --no-cache git && \
     git clone --depth 1 --branch ${BRANCH} ${SOURCE} /app/medusa-src
@@ -43,7 +43,7 @@ COPY --from=builder /app/medusa-src/dist ./dist
 COPY --from=builder /app/medusa-src/build ./build
 
 RUN npm install --only=production
-RUN npm install -g @medusajs/medusa-cli@latest
+RUN npm install -g @medusajs/medusa-cli@preview
 
 #COPY develop.sh .
 #COPY package*.json .
@@ -53,4 +53,4 @@ RUN npm install -g @medusajs/medusa-cli@latest
 #COPY dist ./dist
 #COPY build ./build
 
-ENTRYPOINT ["sh", "/app/medusa/develop.sh", "start"]
+ENTRYPOINT ["sh", "/app/medusa/docker-start.sh", "start"]
