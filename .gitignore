@@ -2,6 +2,8 @@
 .env
 .DS_Store
 /uploads
+/data/partials
+/data/templates
 /node_modules
 /node_modules_v1
 /node_modules_v2

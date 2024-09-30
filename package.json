@@ -22,6 +22,7 @@
     "test:unit": "TEST_TYPE=unit NODE_OPTIONS=--experimental-vm-modules jest --silent --runInBand --forceExit"
   },
   "dependencies": {
+    "@aws-sdk/client-ses": "^3.658.1",
     "@medusajs/admin-sdk": "preview",
     "@medusajs/api-key": "preview",
     "@medusajs/auth": "preview",
@@ -39,7 +40,8 @@
     "@medusajs/medusa": "preview",
     "@medusajs/medusa-cli": "preview",
     "@medusajs/notification": "preview",
-    "@medusajs/notification-local": "preview",
+    "@medusajs/notification-local": "^0.0.2-preview-20240925143312",
+    "@medusajs/notification-sendgrid": "preview",
     "@medusajs/order": "preview",
     "@medusajs/payment": "preview",
     "@medusajs/payment-stripe": "preview",
@@ -53,7 +55,12 @@
     "@medusajs/tax": "preview",
     "@medusajs/user": "preview",
     "@medusajs/workflow-engine-inmemory": "preview",
-    "express": "^4.17.2"
+    "@uiw/react-codemirror": "^4.23.3",
+    "express": "^4.17.2",
+    "handlebars": "^4.7.8",
+    "mjml": "^4.15.3",
+    "nodemailer": "^6.9.15",
+    "react-hook-form": "^7.53.0"
   },
   "devDependencies": {
     "@mikro-orm/cli": "5.9.7",
